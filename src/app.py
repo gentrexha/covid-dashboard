@@ -52,6 +52,7 @@ THEME = {
 
 # Defining app
 app = dash.Dash(external_stylesheets=[dbc.themes.DARKLY])
+server = app.server
 
 app.layout = dbc.Container(
     [
