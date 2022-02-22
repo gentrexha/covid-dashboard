@@ -146,6 +146,14 @@ def setup_data():
     return df_deaths, df_recovered, df_total
 
 
+def read_data():
+    df_deaths = pd.read_csv("../data/deaths.csv")
+    df_recovered = pd.read_csv("../data/recovered.csv")
+    df_total = pd.read_csv("../data/total.csv")
+
+    return df_deaths, df_recovered, df_total
+
+
 def main():
     """ Main program """
     setup_data()

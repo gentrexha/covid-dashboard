@@ -4,20 +4,20 @@ import dash_html_components as html
 import dash_core_components as dcc
 import copy
 import plotly_express as px
-from datetime import date, timedelta
+import dateutil.parser
 from src.utils import (
     DATASET_OPTIONS,
     filter_dataframe,
     return_wanted_dataset,
     drop_non_dates,
-    setup_data,
+    read_data,
 )
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output
 
 
 # Loading data and external assets
-df_deaths, df_recovered, df_total = setup_data()
+df_deaths, df_recovered, df_total = read_data()
 
 # Preprocessing
 for df in [df_total, df_recovered, df_deaths]:
@@ -91,9 +91,9 @@ app.layout = dbc.Container(
                                         html.P("Filter by date"),
                                         dcc.DatePickerSingle(
                                             id="dp_date",
-                                            date=f"{date.today()-timedelta(days=2)}",
+                                            date=f"{dateutil.parser.parse(df_total.columns[-6]).date()}",
                                             display_format="D-MMM-YY",
-                                            max_date_allowed=f"{date.today()-timedelta(days=2)}",
+                                            max_date_allowed=f"{dateutil.parser.parse(df_total.columns[-6]).date()}",
                                             className="dash-bootstrap",
                                             style={
                                                 # "width": "360px",
