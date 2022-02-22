@@ -1,2 +1,5 @@
 # data
 data/*.csv
+
+# IDE
+.idea
