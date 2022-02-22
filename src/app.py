@@ -5,7 +5,7 @@ import dash_core_components as dcc
 import copy
 import plotly_express as px
 from datetime import date, timedelta
-from utils import (
+from src.utils import (
     DATASET_OPTIONS,
     filter_dataframe,
     return_wanted_dataset,

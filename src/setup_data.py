@@ -1,4 +1,4 @@
-from utils import setup_data
+from src.utils import setup_data
 
 df_deaths, df_recovered, df_total = setup_data()
 
